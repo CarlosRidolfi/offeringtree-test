@@ -7,8 +7,10 @@ type LabelProps = React.ComponentProps<"label"> & {
 };
 
 const StyledLabel = styled.label`
-  color: black;
+  color: #333;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  display: block;
 `;
 
 function Label({ title, htmlFor }: LabelProps) {
