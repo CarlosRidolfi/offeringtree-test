@@ -15,7 +15,7 @@ export default function SubscriptionForm() {
   const [initialPrice, setInitialPrice] = useState(1000);
   const [billingFrequency, setBillingFrequency] = useState(1);
   const [timePayment, setTimePayment] = useState<number | undefined>();
-  const [duration, setDuration] = useState<string | undefined>();
+  const [duration, setDuration] = useState<string | undefined>("Never Ends");
   const [trialType, setTrialType] = useState<string | undefined>();
   const [trialValue, setTrialValue] = useState<number | undefined>();
 
