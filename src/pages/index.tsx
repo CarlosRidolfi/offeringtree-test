@@ -13,7 +13,7 @@ import {
 export default function SubscriptionForm() {
   const [paymentType, setPaymentType] = useState<string | undefined>("Days");
   const [initialPrice, setInitialPrice] = useState(1000);
-  const [billingFrequency, setBillingFrequency] = useState(1);
+  const [billingFrequency, setBillingFrequency] = useState(2);
   const [timePayment, setTimePayment] = useState<number | undefined>();
   const [duration, setDuration] = useState<string | undefined>("Never Ends");
   const [trialType, setTrialType] = useState<string | undefined>();
@@ -48,6 +48,7 @@ export default function SubscriptionForm() {
                 type="text"
                 small
                 onChange={(e) => setBillingFrequency(Number(e.target.value))}
+                value={billingFrequency}
               />
               <Select
                 options={["Days", "Weeks", "Months"]}
