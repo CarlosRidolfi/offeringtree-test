@@ -11,7 +11,7 @@ import {
 } from "@/styled-components/styled";
 
 export default function SubscriptionForm() {
-  const [paymentType, setPaymentType] = useState<string | undefined>("");
+  const [paymentType, setPaymentType] = useState<string | undefined>("Days");
   const [initialPrice, setInitialPrice] = useState(1000);
   const [billingFrequency, setBillingFrequency] = useState(1);
   const [timePayment, setTimePayment] = useState<number | undefined>();
