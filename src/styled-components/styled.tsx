@@ -10,6 +10,8 @@ const fadeIn = keyframes`
 `;
 
 export const SubscriptionWrapper = styled.div`
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
   max-width: 800px;
   min-width: 300px;
   background-color: #ffffff;
@@ -24,7 +26,7 @@ export const SubscriptionWrapper = styled.div`
   animation: ${fadeIn} 0.5s ease-in-out;
 
   p {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 18px;
     line-height: 1.6rem;
     max-width: 600px;
@@ -38,7 +40,7 @@ export const SubscriptionWrapper = styled.div`
 
 export const Title = styled.h1`
   font-size: 36px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   font-weight: 600;
 `;
