@@ -58,6 +58,38 @@ export default function SubscriptionForm() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [upfrontPayment, billingFrequency, initialPrice]);
 
+  const renderSubscriptionDetails = () => {
+    if (
+      (trialType === "None" || trialValue === 0) &&
+      duration === "Never Ends"
+    ) {
+      return (
+        <p>{`Your customer will be charged ${upfrontPayment} immediately and then
+            ${timePayment} every ${timeUntilCancel(
+          paymentType
+        )} until they cancel.`}</p>
+      );
+    } else if (duration === "Never Ends" && trialValue !== 0) {
+      return (
+        <p>{`Your customer will be charged ${upfrontPayment} immediately for their ${trialValue} ${timeUntilCancel(
+          trialType
+        )} trial, and then ${timePayment} every ${timeUntilCancel(
+          paymentType
+        )} until they cancel.`}</p>
+      );
+    } else if (duration === "Customize" && trialValue !== 0) {
+      return (
+        <p>{`Your customer will be charged ${upfrontPayment} immediately for their ${trialValue} ${timeUntilCancel(
+          trialType
+        )} trial, and then ${timePayment} every ${timeUntilCancel(
+          paymentType
+        )}, of ${billingCycle} billing cycles. The total amount paid will be ${initialPrice}.`}</p>
+      );
+    } else {
+      return null;
+    }
+  };
+
   return (
     <>
       <SubscriptionWrapper>
@@ -81,6 +113,8 @@ export default function SubscriptionForm() {
               onChange={(e) => setUpfrontPayment(Number(e.target.value))}
             />
           </InputGroup>
+        </InputRow>
+        <InputRow>
           <InputGroup>
             <Label title="Billing Frequency" />
             <InputSelect>
@@ -140,30 +174,7 @@ export default function SubscriptionForm() {
             </InputGroup>
           )}
         </InputRow>
-        <div>
-          {(trialType === "None" || trialValue === 0) &&
-          duration === "Never Ends" ? (
-            <p>{`Your customer will be charged ${upfrontPayment} immediately and then
-            ${timePayment} every ${timeUntilCancel(
-              paymentType
-            )} until they cancel.`}</p>
-          ) : duration === "Never Ends" && trialValue !== 0 ? (
-            <p>{`Your customer will be charged ${upfrontPayment} immediately for their ${trialValue} ${timeUntilCancel(
-              trialType
-            )} trial, and then ${timePayment} every ${timeUntilCancel(
-              paymentType
-            )} until
-            they cancel.`}</p>
-          ) : duration === "Customize" && trialValue !== 0 ? (
-            <p>{`Your customer will be charged ${upfrontPayment} immediately for their ${trialValue} ${timeUntilCancel(
-              trialType
-            )} trial, and then ${timePayment} every ${timeUntilCancel(
-              paymentType
-            )}, of ${billingCycle} billing cycles. The total amount paid will be ${initialPrice}.`}</p>
-          ) : (
-            ""
-          )}
-        </div>
+        <div>{renderSubscriptionDetails()}</div>
       </SubscriptionWrapper>
     </>
   );

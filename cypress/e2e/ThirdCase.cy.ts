@@ -1,4 +1,4 @@
-describe("Trial with never end subscription", () => {
+describe("Trial with ending subscription", () => {
   it("Should navigate to the home page and fill the Product Price input", () => {
     cy.visit("http://localhost:3000/");
 

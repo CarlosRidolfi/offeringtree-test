@@ -22,8 +22,11 @@ export const SubscriptionWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  border: 3px solid #a79696;
+  border: 3px;
   animation: ${fadeIn} 0.5s ease-in-out;
+  -webkit-box-shadow: 0px 3px 5px 4px rgba(148, 74, 148, 1);
+  -moz-box-shadow: 0px 3px 5px 4px rgba(148, 74, 148, 1);
+  box-shadow: 0px 3px 5px 4px rgba(148, 74, 148, 1);
 
   p {
     font-family: "Montserrat", sans-serif;
@@ -39,10 +42,15 @@ export const SubscriptionWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 36px;
+  font-size: 2.25rem;
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
 `;
 
 export const InputRow = styled.div`
